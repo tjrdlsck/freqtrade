@@ -39,9 +39,9 @@ class SentinelStrategyV8(IStrategy):
     timeframe = '1h'
     can_short: bool = True
 
-    # 하이퍼파라미터: 2025년 시장에 맞춘 '공격적' 설정
-    buy_adx_min = IntParameter(15, 35, default=20, space="buy")
-    buy_volume_mult = DecimalParameter(0.8, 2.0, default=1.1, space="buy")
+    # 하이퍼파라미터: 고원(Plateau) 분석을 통해 도출된 강건한(Robust) 설정
+    buy_adx_min = IntParameter(15, 35, default=16, space="buy")
+    buy_volume_mult = DecimalParameter(0.8, 2.0, default=1.75, space="buy")
 
     startup_candle_count: int = 200
 
