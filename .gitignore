@@ -1,0 +1,36 @@
+# --- [1] Sensitive Information (민감 정보) ---
+# API 키와 거래소 비밀번호가 포함될 수 있는 설정 파일입니다.
+freqtrade/user_data/config.json
+
+# --- [2] Database & State Files (데이터베이스 및 상태 파일) ---
+# 로컬 거래 기록이 저장되는 SQLite 데이터베이스와 관련 임시 파일들입니다.
+freqtrade/user_data/tradesv3.sqlite*
+freqtrade/user_data/hyperopt.lock
+
+# --- [3] Backtest & Hyperopt Results (백테스트 및 하이퍼옵트 결과) ---
+# 시뮬레이션 결과물은 용량이 크고 수시로 변경되므로 제외합니다.
+freqtrade/user_data/backtest_results/
+freqtrade/user_data/hyperopt_results/
+freqtrade/user_data/plot/
+
+# --- [4] Market Data (마켓 데이터) ---
+# 거래소에서 내려받은 대용량의 과거 차트 데이터(Feather, JSON 등)입니다.
+freqtrade/user_data/data/
+
+# --- [5] Machine Learning Models (FreqAI 모델) ---
+# 학습된 AI 모델 가중치 및 메타데이터는 대용량이며 재생성이 가능합니다.
+freqtrade/user_data/freqaimodels/
+
+# --- [6] Logs & Artifacts (로그 및 부산물) ---
+# 실행 중 발생하는 로그 파일들입니다.
+freqtrade/user_data/logs/*.log
+*.log
+
+# --- [7] Python Environment & System Files ---
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+venv/
+.DS_Store
