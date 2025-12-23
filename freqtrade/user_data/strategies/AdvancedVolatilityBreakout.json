@@ -1,0 +1,38 @@
+{
+  "strategy_name": "AdvancedVolatilityBreakout",
+  "params": {
+    "max_open_trades": {
+      "max_open_trades": 3
+    },
+    "buy": {
+      "buy_er": 0.613,
+      "buy_k": 0.818,
+      "buy_vol_mult": 2.926,
+      "leverage_num": 3,
+      "ma_period": 64,
+      "ma_type": 0
+    },
+    "sell": {
+      "sell_er": 0.6,
+      "sell_k": 0.555,
+      "sell_vol_mult": 2.865
+    },
+    "roi": {
+      "0": 0.228,
+      "291": 0.171,
+      "571": 0.055,
+      "1608": 0
+    },
+    "stoploss": {
+      "stoploss": -0.093
+    },
+    "trailing": {
+      "trailing_stop": true,
+      "trailing_stop_positive": 0.092,
+      "trailing_stop_positive_offset": 0.124,
+      "trailing_only_offset_is_reached": true
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2025-12-23 02:46:22.840036+00:00"
+}
