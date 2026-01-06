@@ -1,36 +1,39 @@
-# --- [1] Sensitive Information (민감 정보) ---
-# API 키와 거래소 비밀번호가 포함될 수 있는 설정 파일입니다.
-freqtrade/user_data/config.json
+# =================================================================
+# Project Sentinel - Robust .gitignore Template
+# =================================================================
+
+# --- [1] Sensitive Information (민감 정보 - 최우선 보안) ---
+# 모든 설정 파일(v11, dryrun, hyperopt 등 포함)을 일괄 차단합니다.
+freqtrade/user_data/config*.json
+.env
 
 # --- [2] Database & State Files (데이터베이스 및 상태 파일) ---
-# 로컬 거래 기록이 저장되는 SQLite 데이터베이스와 관련 임시 파일들입니다.
-freqtrade/user_data/tradesv3.sqlite*
+# 파일명 중간에 버전이 붙어도 모두 차단합니다.
+freqtrade/user_data/*.sqlite*
+freqtrade/user_data/*.lock
 freqtrade/user_data/hyperopt.lock
 
-# --- [3] Backtest & Hyperopt Results (백테스트 및 하이퍼옵트 결과) ---
-# 시뮬레이션 결과물은 용량이 크고 수시로 변경되므로 제외합니다.
+# --- [3] Freqtrade Directories (용량이 큰 폴더들) ---
 freqtrade/user_data/backtest_results/
 freqtrade/user_data/hyperopt_results/
+freqtrade/user_data/data/
+freqtrade/user_data/freqaimodels/
 freqtrade/user_data/plot/
 
-# --- [4] Market Data (마켓 데이터) ---
-# 거래소에서 내려받은 대용량의 과거 차트 데이터(Feather, JSON 등)입니다.
-freqtrade/user_data/data/
+# --- [4] Logs (로그 파일 - 로테이션 파일 포함) ---
+# 로그 폴더 내의 모든 내용을 차단하는 것이 가장 안전합니다.
+freqtrade/user_data/logs/
+*.log*
 
-# --- [5] Machine Learning Models (FreqAI 모델) ---
-# 학습된 AI 모델 가중치 및 메타데이터는 대용량이며 재생성이 가능합니다.
-freqtrade/user_data/freqaimodels/
-
-# --- [6] Logs & Artifacts (로그 및 부산물) ---
-# 실행 중 발생하는 로그 파일들입니다.
-freqtrade/user_data/logs/*.log
-*.log
-
-# --- [7] Python Environment & System Files ---
+# --- [5] Python & Environment ---
 __pycache__/
 *.py[cod]
 *$py.class
-.env
-.venv
 venv/
+.venv/
+
+# --- [6] OS & IDE ---
 .DS_Store
+.idea/
+.vscode/
+*.swp

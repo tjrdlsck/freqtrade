@@ -1,17 +1,18 @@
 version: '3.9'
 
 services:
-  freqtrade:
+  # Sentinel Trading Bot - Dry Run Mode
+  sentinel-bot:
     image: freqtradeorg/freqtrade:develop
-    container_name: sentinel_core
+    container_name: sentinel-trading-engine
     restart: unless-stopped
     volumes:
       - ./freqtrade/user_data:/freqtrade/user_data
     ports:
-      - "8080:8080"
+      - "8082:8082"
     command: >
       trade
-      --logfile /freqtrade/user_data/logs/freqtrade.log
-      --db-url sqlite:////freqtrade/user_data/tradesv3.sqlite
-      --config /freqtrade/user_data/config.json
-      --strategy SentinelStrategyV1
+      --logfile /freqtrade/user_data/logs/sentinel.log
+      --db-url sqlite:////freqtrade/user_data/sentinel_trades.sqlite
+      --config /freqtrade/user_data/config_dryrun.json
+      --strategy SentinelStrategy
