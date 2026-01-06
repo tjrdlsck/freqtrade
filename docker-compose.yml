@@ -9,7 +9,7 @@ services:
     volumes:
       - ./freqtrade/user_data:/freqtrade/user_data
     ports:
-      - "8082:8082"
+      - "58082:58082"
     command: >
       trade
       --logfile /freqtrade/user_data/logs/sentinel.log
